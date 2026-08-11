@@ -1972,12 +1972,6 @@ img {
     animation-play-state: paused;
 }
 
-.vibes-badges {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-}
-
 .vibes-pill.tiktok {
     background: #000;
     color: #FFF;
@@ -1986,6 +1980,31 @@ img {
 .vibes-pill.instagram {
     background: linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888);
     color: #FFF;
+}
+
+a.vibes-pill {
+    text-decoration: none;
+    transition: var(--transition);
+}
+
+a.vibes-pill:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    filter: brightness(1.1);
+}
+
+a.vibe-user {
+    text-decoration: none;
+    font-weight: 700;
+    color: var(--primary-red);
+}
+
+a.vibe-user:hover {
+    text-decoration: underline;
+}
+
+a.vibe-user.insta {
+    color: #C13584;
 }
 
 .mb-2 { margin-bottom: 8px; }
