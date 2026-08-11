@@ -544,19 +544,11 @@ img {
 
 .hero-img {
     width: 100%;
-    border-radius: var(--radius-xl);
-    box-shadow: var(--shadow-xl);
-    border: 4px solid #FFF;
-}
-
-.hero-mascot-avatar {
-    width: 100%;
-    max-width: 520px;
+    max-width: 540px;
     height: auto;
-    margin: 0 auto;
     display: block;
+    margin: 0 auto;
     border-radius: var(--radius-xl);
-    box-shadow: 0 20px 45px -10px rgba(217, 30, 42, 0.18);
     object-fit: contain;
 }
 
