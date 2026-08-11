@@ -1949,8 +1949,8 @@ img {
 
 .vibes-track {
     display: flex;
-    gap: 20px;
-    animation: marqueeVibes 25s linear infinite;
+    gap: 24px;
+    animation: marqueeVibes 35s linear infinite;
 }
 
 .vibes-track:hover {
