@@ -1927,12 +1927,14 @@ img, iframe, video {
     }
 
     .good-vibes-dual-grid {
-        grid-template-columns: 1fr 1fr;
-        gap: 10px;
+        grid-template-columns: 1fr;
+        gap: 16px;
     }
 
     .vibes-bubble {
-        padding: 10px 10px;
+        width: 100%;
+        box-sizing: border-box;
+        padding: 14px 16px;
     }
 
     .products-grid {
