@@ -1739,16 +1739,23 @@ img {
 }
 
 /* Responsive Media Queries */
-@media (max-width: 992px) {
+@media (max-width: 1024px) {
     .grid-hero, .locator-content-grid, .grid-b2b, .community-grid, .footer-grid {
         grid-template-columns: 1fr;
     }
     
-    .hero-title { font-size: 2.6rem; }
+    .hero-title { font-size: 2.5rem; }
     .pitch-comparison-grid { grid-template-columns: 1fr; }
+    .hero-stats { flex-wrap: wrap; }
 }
 
 @media (max-width: 768px) {
+    .pitch-bar-content {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 8px;
+    }
+    
     .nav-links {
         display: none;
         position: absolute;
@@ -1757,12 +1764,55 @@ img {
         width: 100%;
         background: #FFF;
         flex-direction: column;
-        padding: 20px;
-        box-shadow: var(--shadow-lg);
+        padding: 20px 24px;
+        box-shadow: var(--shadow-xl);
+        border-bottom: 2px solid var(--primary-red);
     }
     
     .nav-links.active { display: flex; }
     .mobile-toggle { display: block; }
+    
+    .hero-section { padding: 40px 0 60px; }
+    .hero-title { font-size: 2.1rem; }
+    .hero-subtitle { font-size: 1rem; }
+    
+    .hero-buttons {
+        flex-direction: column;
+        width: 100%;
+    }
+    
+    .hero-buttons .btn {
+        width: 100%;
+    }
+    
+    .floating-card {
+        position: relative;
+        top: auto !important;
+        bottom: auto !important;
+        left: auto !important;
+        right: auto !important;
+        margin-top: 12px;
+        animation: none;
+    }
+
+    .locator-card-box { padding: 24px 16px; }
     .locator-search-bar { grid-template-columns: 1fr; }
     .form-row { grid-template-columns: 1fr; }
+    .b2b-form-card { padding: 24px 18px; }
+    
+    .modal-card {
+        padding: 24px 18px;
+        max-height: 90vh;
+        overflow-y: auto;
+    }
+}
+
+@media (max-width: 480px) {
+    .container { padding: 0 16px; }
+    .brand-name { font-size: 1.25rem; }
+    .logo-img { height: 40px; }
+    .hero-title { font-size: 1.8rem; }
+    .section-header h2 { font-size: 1.8rem; }
+    .products-grid { grid-template-columns: 1fr; }
+    .calc-results { grid-template-columns: 1fr; }
 }
