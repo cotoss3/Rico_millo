@@ -1915,8 +1915,12 @@ img, iframe, video {
     }
 
     .good-vibes-dual-grid {
-        grid-template-columns: 1fr;
-        gap: 16px;
+        grid-template-columns: 1fr 1fr;
+        gap: 10px;
+    }
+
+    .vibes-bubble {
+        padding: 10px 10px;
     }
 
     .products-grid {
