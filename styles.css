@@ -1957,6 +1957,32 @@ img {
     animation-play-state: paused;
 }
 
+.vibes-badges {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.vibes-pill.tiktok {
+    background: #000;
+    color: #FFF;
+}
+
+.vibes-pill.instagram {
+    background: linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888);
+    color: #FFF;
+}
+
+.mb-2 { margin-bottom: 8px; }
+
+.vibes-ticker-box.insta-box {
+    background: #FFF0F5;
+}
+
+.vibes-track.track-reverse {
+    animation: marqueeVibesReverse 38s linear infinite;
+}
+
 .vibe-card {
     display: inline-flex;
     align-items: center;
@@ -1971,7 +1997,16 @@ img {
     color: var(--primary-red);
 }
 
+.vibe-user.insta {
+    color: #C13584;
+}
+
 @keyframes marqueeVibes {
     0% { transform: translateX(0); }
     100% { transform: translateX(-50%); }
+}
+
+@keyframes marqueeVibesReverse {
+    0% { transform: translateX(-50%); }
+    100% { transform: translateX(0); }
 }
