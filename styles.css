@@ -537,111 +537,21 @@ img {
     background: var(--border-color);
 }
 
-/* Hero Enlarged Carousel Slider */
-.hero-carousel-wrapper {
+/* Hero Visual & Floating Cards */
+.hero-image-wrapper {
     position: relative;
     width: 100%;
-    max-width: 620px;
-    height: 480px;
+}
+
+.hero-img {
+    width: 100%;
+    max-width: 580px;
+    height: auto;
+    display: block;
     margin: 0 auto;
     border-radius: var(--radius-xl);
-    background: #FFFFFF;
-    box-shadow: 0 20px 45px -10px rgba(217, 30, 42, 0.22);
-    border: 4px solid var(--primary-red);
-    overflow: visible;
-}
-
-.hero-carousel-slides {
-    position: relative;
-    width: 100%;
-    height: 100%;
-    border-radius: calc(var(--radius-xl) - 4px);
-    overflow: hidden;
-}
-
-.hero-slide {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    opacity: 0;
-    visibility: hidden;
-    transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
-    transform: scale(0.96);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 16px;
-    background: #FFF;
-}
-
-.hero-slide.active {
-    opacity: 1;
-    visibility: visible;
-    transform: scale(1);
-    z-index: 2;
-}
-
-.hero-slide img {
-    max-width: 100%;
-    max-height: 100%;
-    width: auto;
-    height: auto;
-    object-fit: contain;
-}
-
-.carousel-btn {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    width: 44px;
-    height: 44px;
-    border-radius: 50%;
-    background: rgba(255, 255, 255, 0.95);
-    border: 1px solid var(--border-color);
-    color: var(--text-main);
-    font-size: 1.1rem;
-    cursor: pointer;
-    z-index: 10;
-    box-shadow: var(--shadow-md);
-    transition: var(--transition);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.carousel-btn:hover {
-    background: var(--primary-red);
-    color: #FFF;
-    border-color: var(--primary-red);
-}
-
-.carousel-btn.prev { left: -16px; }
-.carousel-btn.next { right: -16px; }
-
-.carousel-dots {
-    position: absolute;
-    bottom: -32px;
-    left: 50%;
-    transform: translateX(-50%);
-    display: flex;
-    gap: 10px;
-    z-index: 10;
-}
-
-.carousel-dots .dot {
-    width: 12px;
-    height: 12px;
-    border-radius: 50%;
-    background: #CBD5E1;
-    cursor: pointer;
-    transition: var(--transition);
-}
-
-.carousel-dots .dot.active, .carousel-dots .dot:hover {
-    background: var(--primary-red);
-    transform: scale(1.2);
+    box-shadow: var(--shadow-xl);
+    object-fit: cover;
 }
 
 .floating-card {
