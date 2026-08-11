@@ -1888,22 +1888,23 @@ img {
     .calc-results { grid-template-columns: 1fr; }
 }
 
-/* Dual Good Vibes Bubbles (TikTok & Instagram Side-by-Side) */
+/* Dual Good Vibes Bubbles (Full Width Row Spanning Both Columns) */
 .good-vibes-dual-grid {
+    grid-column: 1 / -1;
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 16px;
+    gap: 20px;
     width: 100%;
-    max-width: 680px;
-    margin: 24px auto 0 auto;
+    max-width: 100%;
+    margin-top: 36px;
     box-sizing: border-box;
 }
 
 .vibes-bubble {
     background: #FFFFFF;
     border-radius: var(--radius-lg);
-    padding: 12px 14px;
-    box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.06);
+    padding: 16px 20px;
+    box-shadow: 0 12px 30px -8px rgba(0, 0, 0, 0.08);
     overflow: hidden;
     box-sizing: border-box;
 }
