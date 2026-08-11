@@ -550,8 +550,11 @@ img {
     display: block;
     margin: 0 auto;
     border-radius: var(--radius-xl);
-    box-shadow: var(--shadow-xl);
-    object-fit: cover;
+    object-fit: contain;
+    background: #FFFFFF;
+    padding: 12px;
+    box-shadow: 0 20px 45px -10px rgba(217, 30, 42, 0.15);
+    border: 3px solid #FFF;
 }
 
 .floating-card {
