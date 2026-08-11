@@ -83,7 +83,48 @@ document.addEventListener("DOMContentLoaded", () => {
     updateCalculator();
     setupMobileMenu();
     setupNavbarScroll();
+    initHeroCarousel();
 });
+
+// Hero Carousel Slider Logic
+let currentHeroSlide = 0;
+let heroSlideTimer = null;
+
+function initHeroCarousel() {
+    resetHeroTimer();
+}
+
+function setHeroSlide(index) {
+    const slides = document.querySelectorAll(".hero-slide");
+    const dots = document.querySelectorAll(".carousel-dots .dot");
+    
+    if (slides.length === 0) return;
+    
+    slides.forEach(s => s.classList.remove("active"));
+    dots.forEach(d => d.classList.remove("active"));
+    
+    currentHeroSlide = (index + slides.length) % slides.length;
+    
+    slides[currentHeroSlide]?.classList.add("active");
+    dots[currentHeroSlide]?.classList.add("active");
+    
+    resetHeroTimer();
+}
+
+function nextHeroSlide() {
+    setHeroSlide(currentHeroSlide + 1);
+}
+
+function prevHeroSlide() {
+    setHeroSlide(currentHeroSlide - 1);
+}
+
+function resetHeroTimer() {
+    if (heroSlideTimer) clearInterval(heroSlideTimer);
+    heroSlideTimer = setInterval(() => {
+        nextHeroSlide();
+    }, 4000);
+}
 
 // Initialize Real Interactive Leaflet Map of Panama
 function initRealPanamaMap() {
