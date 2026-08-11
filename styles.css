@@ -1812,6 +1812,18 @@ img {
     color: var(--text-muted);
 }
 
+/* Dual Good Vibes Bubbles (Full Width Row Spanning Both Columns) */
+.good-vibes-dual-grid {
+    grid-column: 1 / -1;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    width: 100%;
+    max-width: 100%;
+    margin-top: 36px;
+    box-sizing: border-box;
+}
+
 /* Responsive Media Queries (100% Mobile & Tablet perfection) */
 html, body {
     overflow-x: hidden;
@@ -1927,8 +1939,8 @@ img, iframe, video {
     }
 
     .good-vibes-dual-grid {
-        grid-template-columns: 1fr;
-        gap: 16px;
+        grid-template-columns: 1fr !important;
+        gap: 16px !important;
     }
 
     .vibes-bubble {
@@ -1970,18 +1982,6 @@ img, iframe, video {
     .cta-banner-box h2 { font-size: 1.6rem; }
     .cta-buttons { flex-direction: column; width: 100%; }
     .cta-buttons .btn { width: 100%; justify-content: center; }
-}
-
-/* Dual Good Vibes Bubbles (Full Width Row Spanning Both Columns) */
-.good-vibes-dual-grid {
-    grid-column: 1 / -1;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 20px;
-    width: 100%;
-    max-width: 100%;
-    margin-top: 36px;
-    box-sizing: border-box;
 }
 
 .vibes-bubble {
