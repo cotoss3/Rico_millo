@@ -1,8 +1,9 @@
 /* ==========================================================================
    RICO MILLO OFFICIAL WEB DEMO - INTERACTIVE JAVASCRIPT
+   Focus: Physical Store Locator & B2B Distributor Recruitment
    ========================================================================== */
 
-// Sample Store Locator Data (Panama Verified Outlets)
+// Store Locator Data (Real Outlets & Supermarkets in Panama)
 const STORES_DATA = [
     {
         id: 1,
@@ -28,7 +29,7 @@ const STORES_DATA = [
         province: "oeste",
         city: "La Chorrera, Panamá Oeste",
         address: "Av. Central, La Chorrera (Cerca de La Arena)",
-        type: "Kiosco / Tienda",
+        type: "Kiosco / Tienda de Barrio",
         phone: "+507 6720-5752"
     },
     {
@@ -54,19 +55,16 @@ const STORES_DATA = [
         name: "Distribuidora Central Chiriquí",
         province: "chiriqui",
         city: "David, Chiriquí",
-        address: "Calle 4ta Este",
+        address: "Calle 4ta Este, David",
         type: "Distribuidor Mayorista",
         phone: "+507 775-9900"
     }
 ];
 
-let selectedOrderProduct = "";
-
 // Initialize App
 document.addEventListener("DOMContentLoaded", () => {
     renderStores(STORES_DATA);
     updateCalculator();
-    setupProductFilter();
     setupMobileMenu();
     setupNavbarScroll();
 });
@@ -85,12 +83,12 @@ function renderStores(stores) {
                 No encontramos puntos de venta que coincidan con tu búsqueda.
             </div>
         `;
-        if (countContainer) countContainer.innerText = "0 puntos encontrados";
+        if (countContainer) countContainer.innerText = "0 tiendas encontradas";
         return;
     }
     
     if (countContainer) {
-        countContainer.innerText = `Mostrando ${stores.length} punto(s) de venta verificado(s)`;
+        countContainer.innerText = `Mostrando ${stores.length} tienda(s) física(s) verificada(s)`;
     }
     
     listContainer.innerHTML = stores.map(store => `
@@ -126,7 +124,7 @@ function filterStores() {
     renderStores(filtered);
 }
 
-// Distributor Profit Calculator
+// Distributor Profit Calculator for Store Owners
 function updateCalculator() {
     const cajasInput = document.getElementById("cajasCount");
     const cajasValLabel = document.getElementById("cajasVal");
@@ -136,8 +134,8 @@ function updateCalculator() {
     if (!cajasInput) return;
     
     const numCajasSemana = parseInt(cajasInput.value, 10) || 5;
-    const precioCajaCosto = 12.00; // Costo estimado de caja de 24 unidades ($0.50/u)
-    const precioVentaPublico = 24.00; // Venta a $1.00 por unidad ($1.00 x 24 = $24.00)
+    const precioCajaCosto = 12.00; // Costo por caja de 24 unidades ($0.50 c/u)
+    const precioVentaPublico = 24.00; // Venta a $1.00 la unidad ($24.00 total)
     
     const inversionSemanal = numCajasSemana * precioCajaCosto;
     const ventaSemanal = numCajasSemana * precioVentaPublico;
@@ -150,7 +148,7 @@ function updateCalculator() {
     if (calcGanancia) calcGanancia.innerText = `$${gananciaMensual.toFixed(2)}`;
 }
 
-// Handle Wholesale Form Submission -> Redirect to WhatsApp wa.link/wm6d7h
+// Handle Store Owner WhatsApp Lead Submission (wa.link/wm6d7h)
 function handleWholesaleSubmit(event) {
     event.preventDefault();
     
@@ -161,75 +159,20 @@ function handleWholesaleSubmit(event) {
     const businessLocation = document.getElementById("businessLocation")?.value || "";
     const businessMessage = document.getElementById("businessMessage")?.value || "";
     
-    const text = `¡Hola Rico Millo! 🌽
-Quiero solicitar información para vender Rico Millo en mi negocio.
+    const text = `¡Hola Productos SK / Rico Millo! 🍿
+Quiero solicitar información para colocar el exhibidor oficial de Rico Millo $1.00 en mi local comercial.
 
 📌 *Datos de mi Negocio:*
-• *Nombre:* ${businessName}
+• *Nombre del Comercio:* ${businessName}
 • *Contacto:* ${contactName}
-• *Teléfono:* ${contactPhone}
-• *Tipo:* ${businessType}
-• *Ubicación:* ${businessLocation}
+• *Teléfono / WhatsApp:* ${contactPhone}
+• *Tipo de Comercio:* ${businessType}
+• *Ubicación / Ciudad:* ${businessLocation}
 
-💬 *Mensaje:* ${businessMessage || 'Me interesa recibir lista de precios mayoristas y condiciones de entrega.'}`;
-
-    const whatsappUrl = `https://wa.me/50767205752?text=${encodeURIComponent(text)}`;
-    window.open(whatsappUrl, "_blank");
-}
-
-// Product Category Filter
-function setupProductFilter() {
-    const filterBtns = document.querySelectorAll(".filter-btn");
-    const productCards = document.querySelectorAll(".product-card");
-    
-    filterBtns.forEach(btn => {
-        btn.addEventListener("click", () => {
-            filterBtns.forEach(b => b.classList.remove("active"));
-            btn.classList.add("active");
-            
-            const filter = btn.getAttribute("data-filter");
-            
-            productCards.forEach(card => {
-                if (filter === "all" || card.getAttribute("data-category") === filter) {
-                    card.style.display = "flex";
-                } else {
-                    card.style.display = "none";
-                }
-            });
-        });
-    });
-}
-
-// Order Modal Functions
-function openOrderModal(productName) {
-    selectedOrderProduct = productName;
-    const productNameEl = document.getElementById("modalProductName");
-    const modal = document.getElementById("orderModal");
-    
-    if (productNameEl) productNameEl.innerText = `Producto: ${productName}`;
-    if (modal) modal.classList.add("active");
-}
-
-function closeOrderModal() {
-    const modal = document.getElementById("orderModal");
-    if (modal) modal.classList.remove("active");
-}
-
-function sendOrderToWhatsApp() {
-    const qty = document.getElementById("modalQty")?.value || "1 a 5 paquetes";
-    const location = document.getElementById("modalLocation")?.value || "Ciudad de Panamá";
-    
-    const text = `¡Hola Rico Millo! 🍿
-Quiero hacer una consulta sobre *${selectedOrderProduct}*.
-
-• *Cantidad solicitada:* ${qty}
-• *Ubicación de entrega:* ${location}
-
-¿Me pueden brindar disponibilidad y método de compra? ¡Gracias!`;
+💬 *Solicitud:* ${businessMessage || 'Deseo coordinar la instalación del exhibidor rojo y realizar mi primer pedido mayorista.'}`;
 
     const whatsappUrl = `https://wa.me/50767205752?text=${encodeURIComponent(text)}`;
     window.open(whatsappUrl, "_blank");
-    closeOrderModal();
 }
 
 // Pitch Sales Modal
