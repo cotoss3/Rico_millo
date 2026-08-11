@@ -1884,3 +1884,87 @@ img {
     .products-grid { grid-template-columns: 1fr; }
     .calc-results { grid-template-columns: 1fr; }
 }
+
+/* TikTok Good Vibes Header Ticker */
+.tiktok-vibes-wrapper {
+    margin-top: 24px;
+    background: #FFFFFF;
+    border-radius: var(--radius-lg);
+    padding: 16px 20px;
+    border: 2px dashed rgba(217, 30, 42, 0.3);
+    box-shadow: 0 10px 25px -5px rgba(217, 30, 42, 0.1);
+}
+
+.vibes-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 12px;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.vibes-pill {
+    background: #000;
+    color: #FFF;
+    font-size: 0.85rem;
+    font-weight: 700;
+    padding: 4px 12px;
+    border-radius: var(--radius-full);
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.vibes-stars {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    color: #F59E0B;
+    font-size: 0.85rem;
+    font-weight: 600;
+}
+
+.vibes-stars span {
+    color: var(--text-muted);
+    font-weight: 500;
+    margin-left: 6px;
+}
+
+.vibes-ticker-box {
+    overflow: hidden;
+    white-space: nowrap;
+    position: relative;
+    border-radius: var(--radius-md);
+    background: #FFF5F5;
+    padding: 10px 14px;
+}
+
+.vibes-track {
+    display: flex;
+    gap: 20px;
+    animation: marqueeVibes 25s linear infinite;
+}
+
+.vibes-track:hover {
+    animation-play-state: paused;
+}
+
+.vibe-card {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 0.9rem;
+    color: var(--text-main);
+    white-space: nowrap;
+}
+
+.vibe-user {
+    font-weight: 700;
+    color: var(--primary-red);
+}
+
+@keyframes marqueeVibes {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+}
