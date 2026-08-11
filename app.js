@@ -3,7 +3,7 @@
    Focus: Physical Store Locator & B2B Distributor Recruitment
    ========================================================================== */
 
-// Store Locator Data (Real Outlets & Supermarkets in Panama)
+// Store Locator Data (Real Outlets & Supermarkets in Panama with Geo-Coordinates)
 const STORES_DATA = [
     {
         id: 1,
@@ -12,7 +12,9 @@ const STORES_DATA = [
         city: "Punta Pacífica, Panamá Centro",
         address: "Plaza Foodie, Av. Punta Pacífica",
         type: "Tienda Gourmet & Market",
-        phone: "+507 6720-5752"
+        phone: "+507 6720-5752",
+        lat: 8.9774,
+        lng: -79.5052
     },
     {
         id: 2,
@@ -21,7 +23,9 @@ const STORES_DATA = [
         city: "Costa Verde, Panamá Oeste",
         address: "Plaza Costa Verde, Autopista Arraiján - La Chorrera",
         type: "Supermercado (Exhibidor Completo)",
-        phone: "+507 6720-5752"
+        phone: "+507 6720-5752",
+        lat: 8.8821,
+        lng: -79.7423
     },
     {
         id: 3,
@@ -30,7 +34,9 @@ const STORES_DATA = [
         city: "La Chorrera, Panamá Oeste",
         address: "Av. Central, La Chorrera (Cerca de La Arena)",
         type: "Kiosco / Tienda de Barrio",
-        phone: "+507 6720-5752"
+        phone: "+507 6720-5752",
+        lat: 8.8803,
+        lng: -79.7831
     },
     {
         id: 4,
@@ -39,7 +45,9 @@ const STORES_DATA = [
         city: "San Francisco, Panamá Centro",
         address: "Vía Porras y Calle 50",
         type: "Supermercado Cadena",
-        phone: "+507 270-5555"
+        phone: "+507 270-5555",
+        lat: 8.9862,
+        lng: -79.5135
     },
     {
         id: 5,
@@ -48,7 +56,9 @@ const STORES_DATA = [
         city: "Arraiján, Panamá Oeste",
         address: "Vía Interamericana",
         type: "Supermercado",
-        phone: "+507 300-1111"
+        phone: "+507 300-1111",
+        lat: 8.9248,
+        lng: -79.6582
     },
     {
         id: 6,
@@ -57,17 +67,97 @@ const STORES_DATA = [
         city: "David, Chiriquí",
         address: "Calle 4ta Este, David",
         type: "Distribuidor Mayorista",
-        phone: "+507 775-9900"
+        phone: "+507 775-9900",
+        lat: 8.4273,
+        lng: -82.4309
     }
 ];
+
+let leafletMap = null;
+let mapMarkers = [];
 
 // Initialize App
 document.addEventListener("DOMContentLoaded", () => {
     renderStores(STORES_DATA);
+    initRealPanamaMap();
     updateCalculator();
     setupMobileMenu();
     setupNavbarScroll();
 });
+
+// Initialize Real Interactive Leaflet Map of Panama
+function initRealPanamaMap() {
+    const mapElement = document.getElementById("realPanamaMap");
+    if (!mapElement || typeof L === "undefined") return;
+
+    // Center map on Panama (Lat: 8.98, Lng: -79.51)
+    leafletMap = L.map("realPanamaMap", {
+        center: [8.95, -79.60],
+        zoom: 10,
+        zoomControl: true
+    });
+
+    // Dark Map Style Tiles (CartoDB Dark Matter / Positron)
+    L.tileLayer("https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png", {
+        attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> &copy; <a href="https://carto.com/">CARTO</a>',
+        maxZoom: 18,
+        subdomains: 'abcd'
+    }).addTo(leafletMap);
+
+    // Render Markers with Rico Millo Logo Icon
+    addLogoMarkersToMap(STORES_DATA);
+}
+
+// Add Custom Rico Millo Logo Markers to Leaflet Map
+function addLogoMarkersToMap(stores) {
+    if (!leafletMap || typeof L === "undefined") return;
+
+    // Clear existing markers
+    mapMarkers.forEach(marker => leafletMap.removeLayer(marker));
+    mapMarkers = [];
+
+    // Custom Icon HTML containing Rico Millo Logo
+    const createLogoIcon = () => L.divIcon({
+        className: "custom-leaflet-logo-pin",
+        html: `
+            <div class="leaflet-logo-marker-wrapper">
+                <div class="leaflet-pin-ring">
+                    <img src="assets/logo.webp" alt="Rico Millo Logo">
+                </div>
+                <div class="leaflet-pin-tip"></div>
+            </div>
+        `,
+        iconSize: [44, 52],
+        iconAnchor: [22, 52],
+        popupAnchor: [0, -48]
+    });
+
+    stores.forEach(store => {
+        if (!store.lat || !store.lng) return;
+
+        const marker = L.marker([store.lat, store.lng], { icon: createLogoIcon() })
+            .addTo(leafletMap);
+
+        const popupContent = `
+            <div class="map-popup-card">
+                <div class="popup-header">
+                    <img src="assets/logo.webp" class="popup-logo" alt="Rico Millo">
+                    <div>
+                        <strong>${escapeHtml(store.name)}</strong>
+                        <small>${escapeHtml(store.type)}</small>
+                    </div>
+                </div>
+                <p class="popup-address"><i class="fa-solid fa-location-dot"></i> ${escapeHtml(store.address)}</p>
+                <a href="https://www.google.com/maps/search/${encodeURIComponent(store.name + ' ' + store.address)}" target="_blank" class="popup-btn">
+                    <i class="fa-solid fa-arrow-up-right-from-square"></i> Abrir en Google Maps
+                </a>
+            </div>
+        `;
+
+        marker.bindPopup(popupContent, { className: 'custom-leaflet-popup' });
+        mapMarkers.push(marker);
+    });
+}
 
 // Render Store List
 function renderStores(stores) {
@@ -80,7 +170,7 @@ function renderStores(stores) {
         listContainer.innerHTML = `
             <div style="text-align: center; padding: 20px; color: #64748B;">
                 <i class="fa-solid fa-store-slash" style="font-size: 2rem; margin-bottom: 10px; display: block;"></i>
-                No encontramos puntos de venta que coincidan con tu búsqueda.
+                No encontramos tiendas que coincidan con tu búsqueda.
             </div>
         `;
         if (countContainer) countContainer.innerText = "0 tiendas encontradas";
@@ -92,18 +182,31 @@ function renderStores(stores) {
     }
     
     listContainer.innerHTML = stores.map(store => `
-        <div class="store-card">
+        <div class="store-card" onclick="focusStoreOnMap(${store.id})">
             <div class="store-icon"><i class="fa-solid fa-store"></i></div>
             <div class="store-details">
                 <div class="store-name">${escapeHtml(store.name)}</div>
                 <div class="store-address">${escapeHtml(store.address)}</div>
                 <span class="store-city">${escapeHtml(store.city)} • ${escapeHtml(store.type)}</span>
             </div>
-            <a href="https://www.google.com/maps/search/${encodeURIComponent(store.name + ' ' + store.address)}" target="_blank" class="btn btn-outline-red btn-sm" title="Ver en Google Maps">
+            <a href="https://www.google.com/maps/search/${encodeURIComponent(store.name + ' ' + store.address)}" target="_blank" class="btn btn-outline-red btn-sm" title="Ver en Google Maps" onclick="event.stopPropagation()">
                 <i class="fa-solid fa-location-arrow"></i> Ir
             </a>
         </div>
     `).join("");
+}
+
+// Focus store on Leaflet map when clicked in store list
+function focusStoreOnMap(storeId) {
+    const store = STORES_DATA.find(s => s.id === storeId);
+    if (!store || !leafletMap) return;
+
+    leafletMap.flyTo([store.lat, store.lng], 14, { duration: 1.2 });
+    
+    const targetMarker = mapMarkers.find((m, index) => STORES_DATA[index]?.id === storeId);
+    if (targetMarker) {
+        targetMarker.openPopup();
+    }
 }
 
 // Filter Stores Logic
@@ -122,6 +225,12 @@ function filterStores() {
     });
     
     renderStores(filtered);
+    addLogoMarkersToMap(filtered);
+    
+    if (filtered.length > 0 && leafletMap) {
+        const bounds = L.latLngBounds(filtered.map(s => [s.lat, s.lng]));
+        leafletMap.fitBounds(bounds, { padding: [50, 50] });
+    }
 }
 
 // Distributor Profit Calculator for Store Owners
@@ -175,26 +284,8 @@ Quiero solicitar información para colocar el exhibidor oficial de Rico Millo $1
     window.open(whatsappUrl, "_blank");
 }
 
-// Select Store from Map Pin Click
-function selectMapStore(storeId) {
-    const store = STORES_DATA.find(s => s.id === storeId);
-    if (!store) return;
-    
-    const titleEl = document.getElementById("tooltipTitle");
-    const addressEl = document.getElementById("tooltipAddress");
-    const tooltipBox = document.getElementById("mapTooltipBox");
-    
-    if (titleEl) titleEl.innerText = store.name;
-    if (addressEl) addressEl.innerText = `${store.city} • ${store.address}`;
-    
-    if (tooltipBox) {
-        tooltipBox.style.display = "flex";
-        tooltipBox.style.animation = "none";
-        // trigger reflow
-        void tooltipBox.offsetWidth;
-        tooltipBox.style.animation = "fadeInUp 0.3s ease-out";
-    }
-}
+// Pitch Sales Modal
+function openPitchModal() {
     const modal = document.getElementById("pitchModal");
     if (modal) modal.classList.add("active");
 }
