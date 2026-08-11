@@ -550,14 +550,18 @@ img {
 }
 
 .hero-mascot-avatar {
-    max-width: 420px;
+    width: 100%;
+    max-width: 450px;
+    height: auto;
+    max-height: 480px;
     margin: 0 auto;
     display: block;
     background: #FFF;
-    padding: 12px;
+    padding: 16px;
+    border-radius: var(--radius-xl);
     border: 4px solid var(--primary-red);
     box-shadow: 0 20px 45px -10px rgba(217, 30, 42, 0.25);
-    object-fit: cover;
+    object-fit: contain;
 }
 
 .floating-card {
