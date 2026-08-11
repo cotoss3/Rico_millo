@@ -175,8 +175,26 @@ Quiero solicitar información para colocar el exhibidor oficial de Rico Millo $1
     window.open(whatsappUrl, "_blank");
 }
 
-// Pitch Sales Modal
-function openPitchModal() {
+// Select Store from Map Pin Click
+function selectMapStore(storeId) {
+    const store = STORES_DATA.find(s => s.id === storeId);
+    if (!store) return;
+    
+    const titleEl = document.getElementById("tooltipTitle");
+    const addressEl = document.getElementById("tooltipAddress");
+    const tooltipBox = document.getElementById("mapTooltipBox");
+    
+    if (titleEl) titleEl.innerText = store.name;
+    if (addressEl) addressEl.innerText = `${store.city} • ${store.address}`;
+    
+    if (tooltipBox) {
+        tooltipBox.style.display = "flex";
+        tooltipBox.style.animation = "none";
+        // trigger reflow
+        void tooltipBox.offsetWidth;
+        tooltipBox.style.animation = "fadeInUp 0.3s ease-out";
+    }
+}
     const modal = document.getElementById("pitchModal");
     if (modal) modal.classList.add("active");
 }

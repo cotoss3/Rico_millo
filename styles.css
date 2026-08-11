@@ -965,7 +965,7 @@ img {
     margin-top: 4px;
 }
 
-/* Map Simulation */
+/* Map Simulation & Logo Pins */
 .map-interactive-card {
     background: #0F172A;
     border-radius: var(--radius-lg);
@@ -974,6 +974,7 @@ img {
     display: flex;
     flex-direction: column;
     height: 100%;
+    box-shadow: var(--shadow-lg);
 }
 
 .map-header {
@@ -984,66 +985,128 @@ img {
     display: flex;
     align-items: center;
     gap: 10px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
 }
 
 .map-canvas-sim {
-    height: 320px;
-    background: radial-gradient(circle at 50% 50%, #1E293B 0%, #0F172A 100%);
+    height: 420px;
+    background: radial-gradient(circle at 60% 40%, #1E293B 0%, #0F172A 100%);
     position: relative;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    overflow: hidden;
 }
 
-.map-overlay-info {
-    text-align: center;
-    z-index: 10;
-    background: rgba(15, 23, 42, 0.85);
-    backdrop-filter: blur(8px);
-    padding: 24px;
-    border-radius: var(--radius-md);
-    border: 1px solid rgba(255, 255, 255, 0.1);
-}
-
-.map-overlay-info i {
-    font-size: 2rem;
-    color: var(--primary-red);
-    margin-bottom: 10px;
-}
-
-.map-overlay-info p {
-    font-size: 0.9rem;
-    margin-bottom: 14px;
-    color: #E2E8F0;
-}
-
-.map-pins-sim .pin {
+.map-panama-bg {
     position: absolute;
-    width: 32px;
-    height: 32px;
-    background: var(--primary-red);
-    color: #FFF;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0.15;
+    background-image: radial-gradient(#CBD5E1 1px, transparent 1px);
+    background-size: 16px 16px;
+    pointer-events: none;
+}
+
+/* Rico Millo Logo Pins */
+.map-logo-pin {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    cursor: pointer;
+    z-index: 20;
+    transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.map-logo-pin:hover {
+    transform: scale(1.25) translateY(-8px);
+    z-index: 50;
+}
+
+.pin-avatar-ring {
+    width: 44px;
+    height: 44px;
     border-radius: 50%;
+    background: #FFFFFF;
+    border: 3px solid var(--primary-red);
+    box-shadow: 0 0 16px rgba(217, 30, 42, 0.8);
     display: flex;
     align-items: center;
     justify-content: center;
-    box-shadow: 0 0 15px var(--primary-red);
-    cursor: pointer;
-    transition: var(--transition);
+    padding: 2px;
+    position: relative;
+    animation: pinGlow 2s infinite ease-in-out alternate;
 }
 
-.map-pins-sim .pin:hover {
-    transform: scale(1.2);
+@keyframes pinGlow {
+    0% { box-shadow: 0 0 10px rgba(217, 30, 42, 0.6); }
+    100% { box-shadow: 0 0 22px rgba(217, 30, 42, 1); }
 }
 
-.pin-1 { top: 30%; left: 45%; }
-.pin-2 { top: 60%; left: 25%; }
-.pin-3 { top: 25%; left: 65%; }
-.pin-4 { top: 70%; left: 75%; }
+.pin-avatar-ring img {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    object-fit: cover;
+}
 
-.map-footer-tip {
-    padding: 12px 20px;
-    background: #1E293B;
+.pin-pointer-tip {
+    width: 0;
+    height: 0;
+    border-left: 6px solid transparent;
+    border-right: 6px solid transparent;
+    border-top: 8px solid var(--primary-red);
+    margin-top: -2px;
+}
+
+.pin-label-tag {
+    background: rgba(15, 23, 42, 0.9);
+    color: #FFF;
+    font-size: 0.7rem;
+    font-weight: 800;
+    padding: 2px 8px;
+    border-radius: 4px;
+    margin-top: 4px;
+    white-space: nowrap;
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+/* Pin Positions across Panama Map */
+.pin-1 { top: 32%; left: 58%; } /* Punta Pacífica */
+.pin-2 { top: 58%; left: 38%; } /* Costa Verde */
+.pin-3 { top: 68%; left: 32%; } /* La Chorrera */
+.pin-4 { top: 25%; left: 62%; } /* Calle 50 */
+.pin-5 { top: 48%; left: 45%; } /* Arraiján */
+.pin-6 { top: 72%; left: 14%; } /* Chiriquí */
+
+/* Map Tooltip Box */
+.map-tooltip-box {
+    position: absolute;
+    bottom: 20px;
+    left: 20px;
+    right: 20px;
+    background: rgba(15, 23, 42, 0.95);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(217, 30, 42, 0.4);
+    padding: 16px 20px;
+    border-radius: var(--radius-md);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
+    z-index: 40;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+}
+
+.map-tooltip-box h4 {
+    font-size: 0.95rem;
+    font-weight: 800;
+    color: #FFF;
+    margin-bottom: 2px;
+}
+
+.map-tooltip-box p {
     font-size: 0.8rem;
     color: #94A3B8;
 }

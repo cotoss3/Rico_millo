@@ -280,19 +280,65 @@
                                     <i class="fa-solid fa-map"></i>
                                     <span>Mapa Oficial de Puntos de Venta Físicos</span>
                                 </div>
-                                <div class="map-canvas-sim">
-                                    <div class="map-overlay-info">
-                                        <i class="fa-solid fa-location-crosshairs"></i>
-                                        <p>Explora todos las tiendas en Google Maps</p>
-                                        <a href="https://www.google.com/maps/d/edit?mid=1_YAq7AyBqbsAQqNc81Z2Np7BCL8iylM&usp=sharing" target="_blank" class="btn btn-light btn-sm">
-                                            <i class="fa-solid fa-arrow-up-right-from-square"></i> Abrir Mapa Completo
-                                        </a>
+                                <div class="map-canvas-sim" id="panamaMapCanvas">
+                                    <div class="map-panama-bg"></div>
+
+                                    <!-- Logo Pins across Panama -->
+                                    <div class="map-logo-pin pin-1" onclick="selectMapStore(1)" title="Foodie Market - Punta Pacífica">
+                                        <div class="pin-avatar-ring">
+                                            <img src="assets/logo.webp" alt="Rico Millo Logo">
+                                        </div>
+                                        <div class="pin-pointer-tip"></div>
+                                        <span class="pin-label-tag">Punta Pacífica</span>
                                     </div>
-                                    <div class="map-pins-sim">
-                                        <div class="pin pin-1" title="Foodie Market - Punta Pacífica"><i class="fa-solid fa-store"></i></div>
-                                        <div class="pin pin-2" title="Super Carnes - Costa Verde"><i class="fa-solid fa-store"></i></div>
-                                        <div class="pin pin-3" title="Supermercados Rey - Calle 50"><i class="fa-solid fa-store"></i></div>
-                                        <div class="pin pin-4" title="La Chorrera - Kiosco El Carmelo"><i class="fa-solid fa-store"></i></div>
+
+                                    <div class="map-logo-pin pin-2" onclick="selectMapStore(2)" title="Super Carnes - Costa Verde">
+                                        <div class="pin-avatar-ring">
+                                            <img src="assets/logo.webp" alt="Rico Millo Logo">
+                                        </div>
+                                        <div class="pin-pointer-tip"></div>
+                                        <span class="pin-label-tag">Costa Verde</span>
+                                    </div>
+
+                                    <div class="map-logo-pin pin-3" onclick="selectMapStore(3)" title="Abarrotería El Carmelo - La Chorrera">
+                                        <div class="pin-avatar-ring">
+                                            <img src="assets/logo.webp" alt="Rico Millo Logo">
+                                        </div>
+                                        <div class="pin-pointer-tip"></div>
+                                        <span class="pin-label-tag">La Chorrera</span>
+                                    </div>
+
+                                    <div class="map-logo-pin pin-4" onclick="selectMapStore(4)" title="Rey - Calle 50">
+                                        <div class="pin-avatar-ring">
+                                            <img src="assets/logo.webp" alt="Rico Millo Logo">
+                                        </div>
+                                        <div class="pin-pointer-tip"></div>
+                                        <span class="pin-label-tag">Calle 50</span>
+                                    </div>
+
+                                    <div class="map-logo-pin pin-5" onclick="selectMapStore(5)" title="Supermercado Xtra - Arraiján">
+                                        <div class="pin-avatar-ring">
+                                            <img src="assets/logo.webp" alt="Rico Millo Logo">
+                                        </div>
+                                        <div class="pin-pointer-tip"></div>
+                                        <span class="pin-label-tag">Arraiján</span>
+                                    </div>
+
+                                    <div class="map-logo-pin pin-6" onclick="selectMapStore(6)" title="Distribuidora Central - Chiriquí">
+                                        <div class="pin-avatar-ring">
+                                            <img src="assets/logo.webp" alt="Rico Millo Logo">
+                                        </div>
+                                        <div class="pin-pointer-tip"></div>
+                                        <span class="pin-label-tag">Chiriquí</span>
+                                    </div>
+
+                                    <!-- Floating Tooltip Box -->
+                                    <div class="map-tooltip-box" id="mapTooltipBox">
+                                        <h4 id="tooltipTitle">Foodie Market</h4>
+                                        <p id="tooltipAddress">Punta Pacífica, Panamá Centro</p>
+                                        <a href="https://www.google.com/maps/d/edit?mid=1_YAq7AyBqbsAQqNc81Z2Np7BCL8iylM&usp=sharing" target="_blank" class="btn btn-primary btn-sm">
+                                            <i class="fa-solid fa-arrow-up-right-from-square"></i> Ver en Google Maps
+                                        </a>
                                     </div>
                                 </div>
                                 <div class="map-footer-tip">
