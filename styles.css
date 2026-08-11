@@ -1888,18 +1888,32 @@ img {
     .calc-results { grid-template-columns: 1fr; }
 }
 
-/* TikTok Good Vibes Header Ticker */
-.tiktok-vibes-wrapper {
-    margin: 24px auto 0 auto;
+/* Dual Good Vibes Bubbles (TikTok & Instagram Side-by-Side) */
+.good-vibes-dual-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
     width: 100%;
-    max-width: 580px;
+    max-width: 680px;
+    margin: 24px auto 0 auto;
     box-sizing: border-box;
+}
+
+.vibes-bubble {
     background: #FFFFFF;
     border-radius: var(--radius-lg);
-    padding: 16px 20px;
-    border: 2px dashed rgba(217, 30, 42, 0.3);
-    box-shadow: 0 10px 25px -5px rgba(217, 30, 42, 0.08);
+    padding: 12px 14px;
+    box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.06);
     overflow: hidden;
+    box-sizing: border-box;
+}
+
+.vibes-bubble.tiktok-bubble {
+    border: 2px dashed rgba(217, 30, 42, 0.35);
+}
+
+.vibes-bubble.instagram-bubble {
+    border: 2px dashed rgba(193, 53, 132, 0.35);
 }
 
 .vibes-header {
