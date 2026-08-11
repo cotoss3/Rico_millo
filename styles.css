@@ -1890,13 +1890,13 @@ img {
 
 /* TikTok Good Vibes Header Ticker */
 .tiktok-vibes-wrapper {
-    margin-top: 18px;
+    margin: 24px auto 0 auto;
     width: 100%;
-    max-width: 100%;
+    max-width: 580px;
     box-sizing: border-box;
     background: #FFFFFF;
     border-radius: var(--radius-lg);
-    padding: 14px 16px;
+    padding: 16px 20px;
     border: 2px dashed rgba(217, 30, 42, 0.3);
     box-shadow: 0 10px 25px -5px rgba(217, 30, 42, 0.08);
     overflow: hidden;
