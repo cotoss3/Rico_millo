@@ -1,0 +1,658 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rico Millo | El Auténtico Millo y Popcorn de Panamá</title>
+    <meta name="description" content="Sitio Oficial de Rico Millo: Palomitas de maíz gourmet (Caramelo y Mantequilla $1.00), snacks y productos criollos en Panamá. Puntos de venta y catálogo mayorista.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Outfit:wght@600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <!-- Pitch Top Bar (Sales Pitch Control) -->
+    <div class="pitch-top-bar" id="pitchBar">
+        <div class="pitch-bar-content">
+            <span class="pitch-badge"><i class="fa-solid fa-chart-line"></i> DEMO DE VENTA WEB</span>
+            <p>Propuesta de Sitio Web Oficial para <strong>Rico Millo</strong> — Diseñada para multiplicar distribuidores y ventas en Panamá.</p>
+            <div class="pitch-bar-actions">
+                <button class="btn-pitch-modal" onclick="openPitchModal()"><i class="fa-solid fa-lightbulb"></i> Ver Ventajas vs Linktree</button>
+                <button class="btn-close-pitch" onclick="togglePitchBar()" title="Ocultar barra"><i class="fa-solid fa-xmark"></i></button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Navigation Header -->
+    <header class="navbar" id="navbar">
+        <div class="container nav-container">
+            <a href="#" class="brand-logo">
+                <img src="assets/logo.webp" alt="Rico Millo Mascot" class="logo-img">
+                <div class="brand-text">
+                    <span class="brand-name">Rico Millo®</span>
+                    <span class="brand-tagline">El Auténtico Millo $1.00</span>
+                </div>
+            </a>
+
+            <nav class="nav-links" id="navMenu">
+                <a href="#inicio" class="nav-link active">Inicio</a>
+                <a href="#productos" class="nav-link">Productos</a>
+                <a href="#donde-consigo" class="nav-link">¿Dónde Consigo?</a>
+                <a href="#quiero-vender" class="nav-link highlight">Quiero Vender</a>
+                <a href="#comunidad" class="nav-link">Comunidad</a>
+            </nav>
+
+            <div class="nav-actions">
+                <a href="#donde-consigo" class="btn btn-outline btn-sm"><i class="fa-solid fa-location-dot"></i> Buscar Tienda</a>
+                <a href="#quiero-vender" class="btn btn-primary btn-sm"><i class="fa-brands fa-whatsapp"></i> Ser Distribuidor</a>
+                <button class="mobile-toggle" id="mobileToggle" aria-label="Abrir Menú">
+                    <i class="fa-solid fa-bars"></i>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="hero-section" id="inicio">
+            <div class="container grid-hero">
+                <div class="hero-content">
+                    <div class="hero-badge">
+                        <span class="pulse-dot"></span> 🍿 Sabor Caramelo & Mantequilla a solo $1.00
+                    </div>
+                    <h1 class="hero-title">
+                        El irresistible crujido de <span class="text-highlight">Rico Millo</span> en Panamá
+                    </h1>
+                    <p class="hero-subtitle">
+                        Las palomitas de maíz favoritas de todos. Disfruta nuestras presentaciones gourmet de Caramelo y Mantequilla (40g a solo $1.00). Encuentra tu punto de venta o equipa tu tienda con nuestro exhibidor oficial.
+                    </p>
+
+                    <div class="hero-buttons">
+                        <a href="#donde-consigo" class="btn btn-primary btn-lg">
+                            <i class="fa-solid fa-map-location-dot"></i> ¿Dónde Consigo?
+                        </a>
+                        <a href="#quiero-vender" class="btn btn-secondary btn-lg">
+                            <i class="fa-solid fa-store"></i> Quiero Vender Rico Millo
+                        </a>
+                    </div>
+
+                    <div class="hero-stats">
+                        <div class="stat-item">
+                            <span class="stat-number">$1.00</span>
+                            <span class="stat-label">Precio Único Sugerido</span>
+                        </div>
+                        <div class="stat-divider"></div>
+                        <div class="stat-item">
+                            <span class="stat-number">+100</span>
+                            <span class="stat-label">Tiendas & Kioscos</span>
+                        </div>
+                        <div class="stat-divider"></div>
+                        <div class="stat-item">
+                            <span class="stat-number">40g</span>
+                            <span class="stat-label">Porción Perfecta</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="hero-visual">
+                    <div class="hero-image-wrapper">
+                        <img src="assets/hero.jpg" alt="Rico Millo Caramelo y Mantequilla" class="hero-img">
+                        <div class="floating-card float-1">
+                            <div class="icon-box red"><i class="fa-solid fa-crown"></i></div>
+                            <div>
+                                <strong>¡Sabor N° 1 Caramelo!</strong>
+                                <small>El preferido por chicos y grandes</small>
+                            </div>
+                        </div>
+
+                        <div class="floating-card float-2">
+                            <div class="icon-box gold"><i class="fa-solid fa-truck-fast"></i></div>
+                            <div>
+                                <strong>Exhibidores $1.00</strong>
+                                <small>Despacho directo desde La Chorrera</small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Product Highlights Banner -->
+        <section class="features-section">
+            <div class="container">
+                <div class="features-grid">
+                    <div class="feature-card">
+                        <div class="feature-icon"><i class="fa-solid fa-cookie"></i></div>
+                        <h3>Maíz Seleccionado</h3>
+                        <p>Elaborado por Productos SK en La Chorrera con ingredientes de primera calidad para lograr un grano expandido y crujiente.</p>
+                    </div>
+
+                    <div class="feature-card">
+                        <div class="feature-icon"><i class="fa-solid fa-tag"></i></div>
+                        <h3>Precio Accesible $1.00</h3>
+                        <p>Formato de 40g al alcance de todos los panameños, ideal para el impulso en caja y merienda diaria.</p>
+                    </div>
+
+                    <div class="feature-card">
+                        <div class="feature-icon"><i class="fa-solid fa-store"></i></div>
+                        <h3>Exhibidor Rojo Oficial</h3>
+                        <p>Entregamos a tu negocio un estante metálico con marca oficial Rico Millo $1.00 que atrae miradas y multiplica la venta.</p>
+                    </div>
+
+                    <div class="feature-card">
+                        <div class="feature-icon"><i class="fa-solid fa-chart-line"></i></div>
+                        <h3>Alta Rotación Comercial</h3>
+                        <p>Un producto de consumo masivo diaria para abarroterías, mini súper, kioscos y estaciones de servicio.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Products Showcase -->
+        <section class="products-section" id="productos">
+            <div class="container">
+                <div class="section-header center">
+                    <span class="section-tag">CATÁLOGO OFICIAL</span>
+                    <h2>Nuestra Línea <span class="text-red">Rico Millo $1.00</span></h2>
+                    <p>Sabor inigualable empacado con la máxima frescura e higiene.</p>
+                </div>
+
+                <div class="product-filters">
+                    <button class="filter-btn active" data-filter="all">Todos los Sabores</button>
+                    <button class="filter-btn" data-filter="popcorn">Millo / Popcorn $1.00</button>
+                    <button class="filter-btn" data-filter="exhibidores">Exhibidores Mayoristas</button>
+                </div>
+
+                <div class="products-grid">
+                    <!-- Product 1: Caramelo -->
+                    <div class="product-card" data-category="popcorn">
+                        <div class="product-badge red">MÁS VENDIDO</div>
+                        <div class="product-img-wrapper">
+                            <img src="assets/clasico.jpg" alt="Rico Millo Caramelo 40g">
+                        </div>
+                        <div class="product-info">
+                            <div class="product-meta">
+                                <span class="product-cat">Millo Dulce</span>
+                                <span class="product-weight">Cont. neto 40g</span>
+                            </div>
+                            <h3 class="product-title">Rico Millo® Sabor Caramelo</h3>
+                            <p class="product-desc">Palomitas de maíz bañado en crujiente caramelo dorado. La mezcla perfecta entre dulce, tostado y suavidad.</p>
+                            <div class="product-footer">
+                                <div class="product-price">
+                                    <span class="price-label">Precio Sugerido</span>
+                                    <span class="price-val">$1.00</span>
+                                </div>
+                                <button class="btn btn-outline-red btn-sm" onclick="openOrderModal('Rico Millo Caramelo $1.00')">
+                                    <i class="fa-brands fa-whatsapp"></i> Pedir
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Product 2: Mantequilla -->
+                    <div class="product-card" data-category="popcorn">
+                        <div class="product-badge gold">CLÁSICO</div>
+                        <div class="product-img-wrapper">
+                            <img src="assets/picante.jpg" alt="Rico Millo Mantequilla 40g">
+                        </div>
+                        <div class="product-info">
+                            <div class="product-meta">
+                                <span class="product-cat">Millo Salado</span>
+                                <span class="product-weight">Cont. neto 40g</span>
+                            </div>
+                            <h3 class="product-title">Rico Millo® Sabor Mantequilla</h3>
+                            <p class="product-desc">El clásico sabor a cine con mantequilla suave y sal en su punto justo. Grano gigante y esponjoso.</p>
+                            <div class="product-footer">
+                                <div class="product-price">
+                                    <span class="price-label">Precio Sugerido</span>
+                                    <span class="price-val">$1.00</span>
+                                </div>
+                                <button class="btn btn-outline-red btn-sm" onclick="openOrderModal('Rico Millo Mantequilla $1.00')">
+                                    <i class="fa-brands fa-whatsapp"></i> Pedir
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Product 3: Exhibidor para Tiendas -->
+                    <div class="product-card" data-category="exhibidores">
+                        <div class="product-badge purple">MAYORISTA</div>
+                        <div class="product-img-wrapper">
+                            <img src="assets/hero.jpg" alt="Exhibidor Rico Millo $1.00">
+                        </div>
+                        <div class="product-info">
+                            <div class="product-meta">
+                                <span class="product-cat">Para Tu Negocio</span>
+                                <span class="product-weight">Exhibidor + Cajas</span>
+                            </div>
+                            <h3 class="product-title">Exhibidor Metálico Rico Millo $1.00</h3>
+                            <p class="product-desc">Rack oficial de exhibición color rojo con cenefa del personaje. Incluye paquetes de Caramelo y Mantequilla listos para vender.</p>
+                            <div class="product-footer">
+                                <div class="product-price">
+                                    <span class="price-label">Pack Tiendas</span>
+                                    <span class="price-val">Consultar</span>
+                                </div>
+                                <button class="btn btn-primary btn-sm" onclick="openOrderModal('Exhibidor Oficial Rico Millo $1.00')">
+                                    <i class="fa-brands fa-whatsapp"></i> Cotizar
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Store Locator Section ("¿Dónde Consigo?") -->
+        <section class="locator-section" id="donde-consigo">
+            <div class="container">
+                <div class="locator-card-box">
+                    <div class="section-header">
+                        <span class="section-tag"><i class="fa-solid fa-map-pin"></i> MAPA INTERACTIVO EN PANAMÁ</span>
+                        <h2>¿Dónde consigo <span class="text-red">Rico Millo</span>?</h2>
+                        <p>Encuentra tus bolsas de Rico Millo a $1.00 en abarroterías, mini súper, kioscos y estaciones cerca de ti.</p>
+                    </div>
+
+                    <div class="locator-search-bar">
+                        <div class="search-input-group">
+                            <i class="fa-solid fa-magnifying-glass"></i>
+                            <input type="text" id="storeSearchInput" placeholder="Busca tu ciudad, corregimiento o tienda..." onkeyup="filterStores()">
+                        </div>
+                        <div class="select-group">
+                            <select id="provinceSelect" onchange="filterStores()">
+                                <option value="all">Todas las Provincias</option>
+                                <option value="panama">Panamá Centro</option>
+                                <option value="oeste">Panamá Oeste (La Chorrera / Arraiján)</option>
+                                <option value="san-miguelito">San Miguelito</option>
+                                <option value="chiriqui">Chiriquí</option>
+                                <option value="colon">Colón</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="locator-content-grid">
+                        <!-- Stores List -->
+                        <div class="stores-list-wrapper">
+                            <div class="stores-count" id="storesCount">Cargando puntos de venta...</div>
+                            <div class="stores-scroll-list" id="storesList">
+                                <!-- Generated via app.js -->
+                            </div>
+                        </div>
+
+                        <!-- Interactive Map Card -->
+                        <div class="map-visual-wrapper">
+                            <div class="map-interactive-card">
+                                <div class="map-header">
+                                    <i class="fa-solid fa-map"></i>
+                                    <span>Mapa Oficial de Cobertura Rico Millo®</span>
+                                </div>
+                                <div class="map-canvas-sim">
+                                    <div class="map-overlay-info">
+                                        <i class="fa-solid fa-location-crosshairs"></i>
+                                        <p>Consulta nuestro mapa interactivo de distribución</p>
+                                        <a href="https://www.google.com/maps/d/edit?mid=1_YAq7AyBqbsAQqNc81Z2Np7BCL8iylM&usp=sharing" target="_blank" class="btn btn-light btn-sm">
+                                            <i class="fa-solid fa-arrow-up-right-from-square"></i> Abrir Google Maps
+                                        </a>
+                                    </div>
+                                    <div class="map-pins-sim">
+                                        <div class="pin pin-1" title="La Chorrera - Fábrica Productos SK"><i class="fa-solid fa-industry"></i></div>
+                                        <div class="pin pin-2" title="Arraiján - Mini Súper El Carmelo"><i class="fa-solid fa-store"></i></div>
+                                        <div class="pin pin-3" title="San Miguelito - Kiosco El Millo"><i class="fa-solid fa-store"></i></div>
+                                        <div class="pin pin-4" title="Panamá Centro - Rey / Super 99"><i class="fa-solid fa-store"></i></div>
+                                    </div>
+                                </div>
+                                <div class="map-footer-tip">
+                                    <i class="fa-solid fa-circle-info"></i> ¿Tienes un kiosco o tienda en Panamá? <a href="#quiero-vender">Solicita tu exhibidor $1.00 gratis aquí.</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- B2B Distributors / Wholesale ("Quiero Vender") -->
+        <section class="b2b-section" id="quiero-vender">
+            <div class="container">
+                <div class="grid-b2b">
+                    <div class="b2b-info">
+                        <span class="section-tag bg-gold"><i class="fa-solid fa-chart-pie"></i> DISTRIBUIDORES & TIENDAS</span>
+                        <h2>Instala el Exhibidor <span class="text-red">Rico Millo $1.00</span> en tu local</h2>
+                        <p>Vende el snack de mayor demanda en Panamá. Te entregamos el exhibidor oficial metálico y te surtimos semanalmente con los mejores márgenes de ganancia.</p>
+
+                        <div class="b2b-perks">
+                            <div class="perk-item">
+                                <div class="perk-icon"><i class="fa-solid fa-dollar-sign"></i></div>
+                                <div>
+                                    <h4>Ganancia Garantizada por Bolsa</h4>
+                                    <p>Precio accesible a $1.00 de rápida rotación que incrementa las compras por impulso en caja.</p>
+                                </div>
+                            </div>
+
+                            <div class="perk-item">
+                                <div class="perk-icon"><i class="fa-solid fa-boxes-packing"></i></div>
+                                <div>
+                                    <h4>Exhibidor Metálico Incluido</h4>
+                                    <p>Te facilitamos el exhibidor con cenefa oficial roja para destacar en la entrada o mostrador de tu negocio.</p>
+                                </div>
+                            </div>
+
+                            <div class="perk-item">
+                                <div class="perk-icon"><i class="fa-solid fa-truck-ramp-box"></i></div>
+                                <div>
+                                    <h4>Entrega Directa desde La Chorrera</h4>
+                                    <p>Despacho directo por el equipo de Productos SK (Tel: 6720-5752) sin demoras.</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Profit Calculator -->
+                        <div class="profit-calculator-card">
+                            <h3><i class="fa-solid fa-calculator"></i> Calculadora de Ganancia Estimada</h3>
+                            <div class="calc-row">
+                                <label for="cajasCount">Cajas de Rico Millo a vender por semana:</label>
+                                <input type="range" id="cajasCount" min="1" max="30" value="5" oninput="updateCalculator()">
+                                <span class="calc-val-badge" id="cajasVal">5 caja(s) / sem</span>
+                            </div>
+                            <div class="calc-results">
+                                <div class="res-box">
+                                    <span class="res-label">Tu Inversión Semanal:</span>
+                                    <span class="res-amount" id="calcInversion">$60.00</span>
+                                </div>
+                                <div class="res-box highlight">
+                                    <span class="res-label">Tu Ganancia Estimada al Mes:</span>
+                                    <span class="res-amount text-green" id="calcGanancia">$240.00</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Direct WhatsApp Lead Form -->
+                    <div class="b2b-form-card">
+                        <div class="form-header">
+                            <h3><i class="fa-brands fa-whatsapp text-green"></i> Solicitar Exhibidor / Pedido Mayorista</h3>
+                            <p>Completa tus datos y enviaremos tu pedido directamente al WhatsApp oficial de ventas (wa.link/wm6d7h).</p>
+                        </div>
+
+                        <form id="wholesaleForm" onsubmit="handleWholesaleSubmit(event)">
+                            <div class="form-group">
+                                <label for="businessName">Nombre de tu Tienda / Kiosco *</label>
+                                <input type="text" id="businessName" placeholder="Ej: Mini Súper El Carmelo" required>
+                            </div>
+
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="contactName">Tu Nombre *</label>
+                                    <input type="text" id="contactName" placeholder="Ej: Juan Pérez" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="contactPhone">Teléfono / WhatsApp *</label>
+                                    <input type="tel" id="contactPhone" placeholder="Ej: 6720-5752" required>
+                                </div>
+                            </div>
+
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="businessType">Tipo de Negocio</label>
+                                    <select id="businessType">
+                                        <option value="Mini Super">Mini Súper / Abarrotería</option>
+                                        <option value="Kiosco">Kiosco / Tiendita</option>
+                                        <option value="Estacion">Estación de Servicio</option>
+                                        <option value="Distribuidor">Distribuidor Rutero</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label for="businessLocation">Ubicación / Corregimiento</label>
+                                    <input type="text" id="businessLocation" placeholder="Ej: La Chorrera, Panamá Oeste">
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="businessMessage">Mensaje o solicitud</label>
+                                <textarea id="businessMessage" rows="3" placeholder="Hola, me interesa instalar el exhibidor de Rico Millo $1.00 en mi local."></textarea>
+                            </div>
+
+                            <button type="submit" class="btn btn-primary btn-block btn-lg">
+                                <i class="fa-brands fa-whatsapp"></i> Contactar por WhatsApp Oficial
+                            </button>
+                            <small class="form-privacy"><i class="fa-solid fa-shield-halved"></i> Elaborado por Productos SK • Panamá Oeste</small>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Social Feed & Music (TikTok + Spotify) -->
+        <section class="community-section" id="comunidad">
+            <div class="container">
+                <div class="section-header center">
+                    <span class="section-tag"><i class="fa-brands fa-tiktok"></i> TIKTOK & RITMO</span>
+                    <h2>Comunidad <span class="text-red">@ricomillo.pa</span></h2>
+                    <p>Conéctate con el contenido viral de Rico Millo en TikTok y disfruta la playlist oficial en Spotify.</p>
+                </div>
+
+                <div class="community-grid">
+                    <!-- TikTok Card -->
+                    <div class="social-card tiktok-card">
+                        <div class="social-card-header">
+                            <i class="fa-brands fa-tiktok"></i>
+                            <div>
+                                <h4>TikTok Official @ricomillo.pa</h4>
+                                <small>Videos virales, retos y risas</small>
+                            </div>
+                        </div>
+                        <div class="tiktok-preview-box">
+                            <div class="tiktok-badge-live">TENDENCIA</div>
+                            <div class="tiktok-caption">¿Caramelo o Mantequilla?🍿 ¡Comenta tu favorito de $1.00!</div>
+                            <div class="tiktok-actions">
+                                <span><i class="fa-solid fa-heart"></i> 18.2K</span>
+                                <span><i class="fa-solid fa-comment"></i> 410</span>
+                            </div>
+                        </div>
+                        <a href="https://www.tiktok.com/@ricomillo.pa" target="_blank" class="btn btn-dark btn-block">
+                            <i class="fa-brands fa-tiktok"></i> Ver TikTok @ricomillo.pa
+                        </a>
+                    </div>
+
+                    <!-- Spotify Music Card -->
+                    <div class="social-card spotify-card">
+                        <div class="social-card-header">
+                            <i class="fa-brands fa-spotify"></i>
+                            <div>
+                                <h4>Spotify Playlist Rico Millo</h4>
+                                <small>Música panameña para tus momentos de snack</small>
+                            </div>
+                        </div>
+                        <div class="spotify-player-sim">
+                            <div class="track-info">
+                                <div class="album-art"><i class="fa-solid fa-music"></i></div>
+                                <div>
+                                    <strong>Ponle Ritmo a tu Millo 2026</strong>
+                                    <p>Lo más escuchado en Panamá</p>
+                                </div>
+                            </div>
+                            <div class="player-controls">
+                                <button class="btn-play-sim" onclick="togglePlaySim(this)"><i class="fa-solid fa-play"></i></button>
+                                <div class="progress-bar-sim"><div class="progress-fill"></div></div>
+                            </div>
+                        </div>
+                        <a href="https://linktr.ee/ricomillo" target="_blank" class="btn btn-spotify btn-block">
+                            <i class="fa-brands fa-spotify"></i> Escuchar en Spotify
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA Banner -->
+        <section class="cta-banner-section">
+            <div class="container">
+                <div class="cta-banner-box">
+                    <h2>¡Lleva el verdadero sabor de <span class="highlight-yellow">Rico Millo</span> a tu vida!</h2>
+                    <p>Consíguelo a solo $1.00 o distribúyelo hoy mismo en tu tienda.</p>
+                    <div class="cta-buttons">
+                        <a href="#donde-consigo" class="btn btn-light btn-lg"><i class="fa-solid fa-map-pin"></i> Ver Puntos de Venta</a>
+                        <a href="http://wa.link/wm6d7h" target="_blank" class="btn btn-whatsapp btn-lg"><i class="fa-brands fa-whatsapp"></i> Hablar por WhatsApp</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+        <div class="container footer-grid">
+            <div class="footer-brand">
+                <div class="brand-logo">
+                    <img src="assets/logo.webp" alt="Rico Millo Logo" class="logo-img">
+                    <span class="brand-name white">Rico Millo®</span>
+                </div>
+                <p>Palomitas de maíz gourmet fabricadas por Productos SK en La Chorrera, Panamá. Calidad, sabor y crujido a $1.00.</p>
+                <div class="social-links">
+                    <a href="https://www.tiktok.com/@ricomillo.pa" target="_blank" aria-label="TikTok"><i class="fa-brands fa-tiktok"></i></a>
+                    <a href="http://wa.link/wm6d7h" target="_blank" aria-label="WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
+                    <a href="https://linktr.ee/ricomillo" target="_blank" aria-label="Linktree"><i class="fa-solid fa-link"></i></a>
+                </div>
+            </div>
+
+            <div class="footer-links">
+                <h4>Navegación</h4>
+                <ul>
+                    <li><a href="#inicio">Inicio</a></li>
+                    <li><a href="#productos">Productos</a></li>
+                    <li><a href="#donde-consigo">¿Dónde Consigo?</a></li>
+                    <li><a href="#quiero-vender">Quiero Vender</a></li>
+                    <li><a href="#comunidad">Comunidad</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-links">
+                <h4>Provincias</h4>
+                <ul>
+                    <li><a href="#donde-consigo">Panamá Oeste (Fábrica)</a></li>
+                    <li><a href="#donde-consigo">Panamá Centro</a></li>
+                    <li><a href="#donde-consigo">San Miguelito</a></li>
+                    <li><a href="#donde-consigo">Chiriquí</a></li>
+                    <li><a href="#donde-consigo">Colón</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-contact">
+                <h4>Contacto de Fábrica</h4>
+                <p><i class="fa-solid fa-industry"></i> Productos SK</p>
+                <p><i class="fa-brands fa-whatsapp"></i> WhatsApp: <a href="http://wa.link/wm6d7h">+507 6720-5752</a></p>
+                <p><i class="fa-solid fa-location-dot"></i> La Chorrera / La Arena, Panamá Oeste</p>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <div class="container footer-bottom-content">
+                <p>&copy; 2026 Rico Millo® - Productos SK. Todos los derechos reservados.</p>
+                <p class="sales-credit">⚡ DEMO DE PROPUESTA WEB PROFESIONAL DE VENTA</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Order Modal -->
+    <div class="modal-backdrop" id="orderModal">
+        <div class="modal-card">
+            <button class="modal-close" onclick="closeOrderModal()"><i class="fa-solid fa-xmark"></i></button>
+            <div class="modal-header">
+                <div class="icon-circle"><i class="fa-brands fa-whatsapp"></i></div>
+                <h3>Solicitud de Pedido Rico Millo</h3>
+                <p id="modalProductName">Producto Seleccionado</p>
+            </div>
+            <div class="modal-body">
+                <div class="form-group">
+                    <label for="modalQty">Cantidad de paquetes / cajas:</label>
+                    <select id="modalQty">
+                        <option value="1 a 5 paquetes ($1.00 c/u)">1 a 5 paquetes (Consumo Personal)</option>
+                        <option value="1 Caja Exhibidora (24 unidades)">1 Caja Exhibidora (24 unidades)</option>
+                        <option value="5 a 10 Cajas Mayoristas">5 a 10 Cajas Mayoristas</option>
+                        <option value="Exhibidor Completo + Cajas">Exhibidor Completo + Cajas de Surtido</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="modalLocation">Ubicación de entrega (Ciudad / Corregimiento):</label>
+                    <input type="text" id="modalLocation" placeholder="Ej: La Chorrera, Panamá Oeste">
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-outline" onclick="closeOrderModal()">Cancelar</button>
+                <button class="btn btn-primary" onclick="sendOrderToWhatsApp()"><i class="fa-brands fa-whatsapp"></i> Enviar por WhatsApp</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Pitch Sales Modal -->
+    <div class="modal-backdrop" id="pitchModal">
+        <div class="modal-card modal-large">
+            <button class="modal-close" onclick="closePitchModal()"><i class="fa-solid fa-xmark"></i></button>
+            <div class="modal-header pitch-header">
+                <span class="pitch-badge-modal">📊 ARGUMENTO DE VENTA</span>
+                <h2>¿Por qué Rico Millo debe migrar de Linktree a esta Web Profesional?</h2>
+                <p>Comparativa clave de negocio para presentar a la directiva de Rico Millo / Productos SK.</p>
+            </div>
+
+            <div class="modal-body">
+                <div class="pitch-comparison-grid">
+                    <div class="comp-card current">
+                        <div class="comp-header">
+                            <i class="fa-solid fa-link"></i>
+                            <h3>Linktree Actual</h3>
+                            <span class="badge-status">Baja Conversión</span>
+                        </div>
+                        <ul class="comp-list">
+                            <li><i class="fa-solid fa-xmark text-red"></i> Solo 3 botones de texto sin fotos atractivas de los productos.</li>
+                            <li><i class="fa-solid fa-xmark text-red"></i> No muestra los sabores (Caramelo y Mantequilla $1.00).</li>
+                            <li><i class="fa-solid fa-xmark text-red"></i> No ayuda a los dueños de tiendas a saber dónde comprar ni cómo vender.</li>
+                            <li><i class="fa-solid fa-xmark text-red"></i> Invisibilidad en motores de búsqueda de Google Panamá.</li>
+                        </ul>
+                    </div>
+
+                    <div class="comp-card web-pro">
+                        <div class="comp-header">
+                            <i class="fa-solid fa-crown text-gold"></i>
+                            <h3>Sitio Web Oficial Rico Millo®</h3>
+                            <span class="badge-status green">Gran Impacto</span>
+                        </div>
+                        <ul class="comp-list">
+                            <li><i class="fa-solid fa-check text-green"></i> <strong>Catálogo HD de Sabores $1.00:</strong> Despierta el antojo visual inmediato.</li>
+                            <li><i class="fa-solid fa-check text-green"></i> <strong>Buscador de Puntos de Venta:</strong> Atrae clientes a las abarroterías aliadas.</li>
+                            <li><i class="fa-solid fa-check text-green"></i> <strong>Captura de Distribuidores:</strong> Calculadora de ganancias y formulario directo al WhatsApp wa.link/wm6d7h.</li>
+                            <li><i class="fa-solid fa-check text-green"></i> <strong>Dominio y SEO Propio:</strong> Posiciona a Rico Millo como una gran marca nacional.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="pitch-summary-box">
+                    <h4><i class="fa-solid fa-chart-line text-red"></i> Resultados directos previstos:</h4>
+                    <div class="metrics-row">
+                        <div class="metric-item">
+                            <span class="m-val">+350%</span>
+                            <span class="m-lbl">Consultas de Tiendas</span>
+                        </div>
+                        <div class="metric-item">
+                            <span class="m-val">100%</span>
+                            <span class="m-lbl">Control de Marca</span>
+                        </div>
+                        <div class="metric-item">
+                            <span class="m-val">24/7</span>
+                            <span class="m-lbl">Canal de Ventas Activo</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="modal-footer flex-center">
+                <a href="http://wa.link/wm6d7h" target="_blank" class="btn btn-primary btn-lg">
+                    <i class="fa-brands fa-whatsapp"></i> Presentar Propuesta por WhatsApp
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
